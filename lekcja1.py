@@ -1,11 +1,12 @@
 import pygame
 import random
 
-#losowanie pozycji jablka
-xApple=random.randint(0,14)*20+10
-yApple=random.randint(0,14)*20+10
+
 
 def main():
+    #losowanie pozycji jablka
+    xApple=random.randint(0,14)*20+10
+    yApple=random.randint(0,14)*20+10
     pygame.init()
     Oknogry=pygame.display.set_mode((300,300),0,32)
     run=True
@@ -31,6 +32,15 @@ def main():
                     zmienna2=zmienna2-20
                 elif event.key == pygame.K_DOWN:
                     zmienna2=zmienna2+20   
+            #zjedzenie jablka
+        if zmienna1==xApple-10 and zmienna2==yApple-10:
+            #losowanie pozycji jablka
+            xApple=random.randint(0,14)*20+10
+            yApple=random.randint(0,14)*20+10
+            #rysowanie jabłka
+            pygame.draw.circle(Oknogry,(255,255,0),(xApple,yApple),10)
+        
+        
         #przejscie prawa
         if zmienna1>300:
             zmienna1=0
