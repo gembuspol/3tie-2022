@@ -4,9 +4,8 @@ import random
 
 
 def main():
-    #lista
-    lista=[1,26,8,2,7,"pap","pee"]
-    print(lista)
+    #lista pozycji
+    wazPozycje=[(20,20)]
     #losowanie pozycji jablka
     xApple=random.randint(0,14)*20+10
     yApple=random.randint(0,14)*20+10
