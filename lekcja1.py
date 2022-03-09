@@ -15,7 +15,8 @@ def main():
     zmienna2=160
     #lista pozycji
     wazPozycje=[(zmienna1,zmienna2)]
-
+    #liczba punktów
+    punkty=0
     #dlugosc weze
     dlugosc=1
     while(run):
@@ -37,9 +38,17 @@ def main():
                     zmienna2=zmienna2-20
                 elif event.key == pygame.K_DOWN:
                     zmienna2=zmienna2+20 
+                #sprawdzanie czy waz nie zjada siebie
+                
+                for czesciCiala in wazPozycje[::]:
+                    if czesciCiala[0]==zmienna1 and czesciCiala[1]==zmienna2:
+                        wazPozycje=[(zmienna1,zmienna2)]
+                        dlugosc=1
+                        punkty=0
                 wazPozycje.append((zmienna1,zmienna2))
                 if len(wazPozycje)>dlugosc:
                     del wazPozycje[0]  
+                
         #rysowanie węża
         for position in wazPozycje[::-1]:
             kwadrat = pygame.Rect((position[0],position[1]),(20,20))
@@ -48,6 +57,7 @@ def main():
             #zjedzenie jablka
         if zmienna1==xApple-10 and zmienna2==yApple-10:
             dlugosc+=1
+            punkty+=1
             #dlugosc=dlugosc+1
             #losowanie pozycji jablka
             xApple=random.randint(0,14)*20+10
@@ -55,7 +65,9 @@ def main():
             #rysowanie jabłka
             pygame.draw.circle(Oknogry,(255,255,0),(xApple,yApple),10)
         
-        
+        czcionka=pygame.font.SysFont('comicsans',20)
+        tekst=czcionka.render("Punkty {0}".format(punkty),1,(255,255,0))
+        Oknogry.blit(tekst,(10,10))
         #przejscie prawa
         if zmienna1>300:
             zmienna1=0
