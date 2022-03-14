@@ -1,10 +1,12 @@
 import pygame
 import random
+import waz
 
 
 
 def main():
-    
+    obiektWaz=waz.Waz()
+
     #losowanie pozycji jablka
     xApple=random.randint(0,14)*20+10
     yApple=random.randint(0,14)*20+10
