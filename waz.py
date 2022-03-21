@@ -15,8 +15,17 @@ class Waz():
     def snakeMove(self,x,y):
         #sprawdzanie krawedzi
         noweWspolrzedne=self.checkBorder(x,y)
+        #sprawdzenie czy wąż nie zjadł sam siebie
+        for czesciCiala in self.pozycja[::]:
+            if czesciCiala[0]==noweWspolrzedne[0] and czesciCiala[1]==noweWspolrzedne[1]:
+                self.dlugosc=1
+                self.punkty=0
+            
         #dodanie nowej pozycji
-        self.addPosition(noweWspolrzedne[0],noweWspolrzedne[1])
+        if self.dlugosc==1:
+            self.pozycja=[noweWspolrzedne]
+        else:
+            self.addPosition(noweWspolrzedne[0],noweWspolrzedne[1])
         #jeżeli wąż jest za dlugi, usunięcie pierwszej pozycji
         if len(self.pozycja)>self.dlugosc:
             del self.pozycja[0]
@@ -24,6 +33,7 @@ class Waz():
     def snakeEat(self):
         #self.dlugosc=self.dlugosc+1
         self.dlugosc+=1
+        self.punkty+=1
     #rysowanie węża
     def drawSnake(self, Oknogry):
         for position in self.pozycja[::-1]:
@@ -44,3 +54,6 @@ class Waz():
         if zmienna2<0:
             zmienna2=300
         return (zmienna1,zmienna2)
+    
+
+
