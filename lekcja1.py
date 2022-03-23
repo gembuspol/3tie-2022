@@ -30,16 +30,16 @@ def main():
             #sterowanie weża
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    glowaWazX=glowaWazX-20
+                    obiektWaz.setDirection((-1,0))
                 elif event.key == pygame.K_RIGHT:
-                    glowaWazX=glowaWazX+20 
+                    obiektWaz.setDirection((1,0))
                 elif event.key == pygame.K_UP:
-                    glowaWazY=glowaWazY-20
+                    obiektWaz.setDirection((0,-1))
                 elif event.key == pygame.K_DOWN:
-                    glowaWazY=glowaWazY+20 
+                    obiektWaz.setDirection((0,1))
                 #sprawdzanie czy waz nie zjada siebie
                 
-                obiektWaz.snakeMove(glowaWazX,glowaWazY)
+        obiektWaz.snakeMove()
                 
         #rysowanie węża
         obiektWaz.drawSnake(Oknogry)

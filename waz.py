@@ -5,6 +5,10 @@ class Waz():
         self.dlugosc=1
         self.pozycja=[(160,160)]
         self.punkty=0
+        self.kierunek=(0,1)
+    #ustalenie kierunku węża
+    def setDirection(self,direction):
+        self.kierunek=direction
     #zwrócenie pozycji głowy
     def getHeadPosition(self):
         return self.pozycja[-1]
@@ -12,7 +16,12 @@ class Waz():
     def addPosition(self,x,y):
         self.pozycja.append((x,y))
     #wykonanie ruchu przez węża
-    def snakeMove(self,x,y):
+    def snakeMove(self):
+        #generowanie nowych pozycji
+        #ostatnia pozycja glowy
+        ostatniaPozycja=self.pozycja[-1]
+        x=ostatniaPozycja[0]+20*self.kierunek[0]
+        y=ostatniaPozycja[1]+20*self.kierunek[1]
         #sprawdzanie krawedzi
         noweWspolrzedne=self.checkBorder(x,y)
         #sprawdzenie czy wąż nie zjadł sam siebie
