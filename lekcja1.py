@@ -1,15 +1,14 @@
 import pygame
 import random
 import waz
-
+import jablko
 
 
 def main():
     obiektWaz=waz.Waz()
+    obiektJablko=jablko.Jablko()
 
-    #losowanie pozycji jablka
-    xApple=random.randint(0,14)*20+10
-    yApple=random.randint(0,14)*20+10
+    
     pygame.init()
     Oknogry=pygame.display.set_mode((300,300),0,32)
     run=True
@@ -23,7 +22,8 @@ def main():
         pygame.time.delay(100)
         
         #rysowanie jablka
-        pygame.draw.circle(Oknogry,(0,255,0),(xApple,yApple),10)
+        obiektJablko.drawApple(Oknogry)
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -45,14 +45,14 @@ def main():
         obiektWaz.drawSnake(Oknogry)
             
             #zjedzenie jablka
-        if glowaWazX==xApple-10 and glowaWazY==yApple-10:
+        pozycjaJablka=obiektJablko.getPosition()
+        if glowaWazX==pozycjaJablka[0]-10 and glowaWazY==pozycjaJablka[1]-10:
             obiektWaz.snakeEat()
             #dlugosc=dlugosc+1
             #losowanie pozycji jablka
-            xApple=random.randint(0,14)*20+10
-            yApple=random.randint(0,14)*20+10
+            obiektJablko.randPosition()
             #rysowanie jabłka
-            pygame.draw.circle(Oknogry,(255,255,0),(xApple,yApple),10)
+            obiektJablko.drawApple(Oknogry)
         
         czcionka=pygame.font.SysFont('comicsans',20)
         tekst=czcionka.render("Punkty {0}".format(obiektWaz.punkty),1,(255,255,0))
