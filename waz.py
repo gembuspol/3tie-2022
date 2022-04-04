@@ -63,6 +63,13 @@ class Waz():
         if zmienna2<0:
             zmienna2=300
         return (zmienna1,zmienna2)
-    
+    #sprawdzanie czy ktoś mnie nie zjadł
+    def bitMe(self,pozycje):
+        for czesciCiala in self.pozycja[::]:
+            if pozycje[0]==czesciCiala[0] and pozycje[1] ==czesciCiala[1]:
+                self.pozycja=[(pozycje[0],pozycje[1])]
+                self.dlugosc=1
+                self.punkty=0
+
 
 
