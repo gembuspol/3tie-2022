@@ -1,4 +1,5 @@
 import pygame
+import lekcja1
 class Waz():
     #konstruktor klasy - uruchamia się podczas utworzenia obiektu
     def __init__(self):
@@ -51,17 +52,17 @@ class Waz():
     #sprawdzanie krawedzi okna
     def checkBorder(self,zmienna1,zmienna2):
         #przejscie prawa
-        if zmienna1>300:
+        if zmienna1>lekcja1.rozdzielczosc:
             zmienna1=0
         #przejscie dol
-        if zmienna2>300:
+        if zmienna2>lekcja1.rozdzielczosc:
             zmienna2=0
         #przejscie lewa
         if zmienna1<0:
-            zmienna1=300
+            zmienna1=lekcja1.rozdzielczosc
         #przejscie gora
         if zmienna2<0:
-            zmienna2=300
+            zmienna2=lekcja1.rozdzielczosc
         return (zmienna1,zmienna2)
     #sprawdzanie czy ktoś mnie nie zjadł
     def bitMe(self,pozycje):

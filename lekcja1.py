@@ -2,6 +2,7 @@ import pygame
 import random
 import waz
 import jablko
+rozdzielczosc=500
 
 iloscJablek=5
 def main():
@@ -13,7 +14,7 @@ def main():
 
     
     pygame.init()
-    Oknogry=pygame.display.set_mode((300,300),0,32)
+    Oknogry=pygame.display.set_mode((rozdzielczosc,rozdzielczosc),0,32)
     run=True
 
     
