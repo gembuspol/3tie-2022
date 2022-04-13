@@ -3,11 +3,15 @@ import random
 import waz
 import jablko
 rozdzielczosc=500
+obiektWaz1=waz.Waz()
+obiektWaz2=waz.Waz()
+def zmienKolorWaz1(kolor):
+    obiektWaz1.setColor(kolor)
+
 
 iloscJablek=5
 def main():
-    obiektWaz1=waz.Waz()
-    obiektWaz2=waz.Waz()
+    
     obiektJablko=[]
     for nrJablka in range(0,iloscJablek):
         obiektJablko.append(jablko.Jablko())

@@ -7,6 +7,10 @@ class Waz():
         self.pozycja=[(160,160)]
         self.punkty=0
         self.kierunek=(0,1)
+        self.kolor=(255,0,0)
+    #ustawia kolor węża
+    def setColor(self,nowyKolor):
+        self.kolor=nowyKolor
     #ustalenie kierunku węża
     def setDirection(self,direction):
         self.kierunek=direction
@@ -48,7 +52,7 @@ class Waz():
     def drawSnake(self, Oknogry):
         for position in self.pozycja[::-1]:
             kwadrat = pygame.Rect((position[0],position[1]),(20,20))
-            pygame.draw.rect(Oknogry,(255,0,0),kwadrat)
+            pygame.draw.rect(Oknogry,self.kolor,kwadrat)
     #sprawdzanie krawedzi okna
     def checkBorder(self,zmienna1,zmienna2):
         #przejscie prawa

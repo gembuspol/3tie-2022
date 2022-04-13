@@ -8,6 +8,8 @@ def zmienRozdzielczosc(value,roz):
     lekcja1.rozdzielczosc=roz
 def iloscJablek(value,ilosc):
     lekcja1.iloscJablek=ilosc
+def zmienKolorWaz1(value):
+    lekcja1.zmienKolorWaz1(value)
 def main():
     pygame.init()
     OknoMenu=pygame.display.set_mode((500,500))
@@ -16,6 +18,7 @@ def main():
     menu.add.button("Start gry",startGra,background_color=(255,255,0))
     menu.add.selector("Rozmiar ekranu",[('500x500',500),('600x600',600),('800x800',800)],onchange=zmienRozdzielczosc)
     menu.add.selector("Ilość jabłek",[("1",1),("2",2),("3",3),("5",5),("10",10),("100",100),],onchange=iloscJablek)
+    menu.add.color_input("Kolor wąż 1",'rgb',default=(100,100,100),onreturn=zmienKolorWaz1)
     menu.mainloop(OknoMenu)
 
 main()
