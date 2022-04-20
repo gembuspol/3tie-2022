@@ -81,6 +81,7 @@ def main():
                 nrJablka.randPosition()
             #rysowanie jabłka
             nrJablka.drawApple(Oknogry)
+            
         obiektWaz1.bitMe(glowa2)
         obiektWaz2.bitMe(glowa)
         czcionka=pygame.font.SysFont('comicsans',20)
